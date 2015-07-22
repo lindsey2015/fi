@@ -1,0 +1,166 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+apply plugin: 'java'
+sourceCompatibility = '1.8'
+
+apply plugin: 'idea'
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file('build/idea/main')
+        testOutputDir = file('build/idea/test')
+    }
+}
+
+apply plugin: 'war'
+
+war {
+    archiveName = project.name + ".war"
+    manifest {
+        attributes(
+                'Manifest-Version': "1.0",
+                "Implementation-Title": project.name,
+                "Implementation-Version": "1.0.0",
+                'Gradle-Version': gradle.gradleVersion,
+                'Build-Jdk': System.properties['java.version'],
+                'Build-Date': new Date().format("yyyy-MM-dd HH:mm:ss")
+        )
+    }
+
+    classpath = classpath.filter { file ->
+        !file.name.startsWith("jaxb-")
+    }
+}
+
+task explodedWar(type: Copy) {
+    into "$buildDir/exploded-war"
+    with war
+}
+
+ext {
+    // compile
+    springVersion                   = '3.2.13.RELEASE'
+    hibernateVersion                = '4.1.12.Final'
+    freemarkerVersion               = '2.3.19'
+    slf4jVersion                    = '1.7.12'
+    logbackVersion                  = '1.1.3'
+    spymemcachedVersion             = '2.11.7'
+    simpleSpringMemcachedVersion    = '3.5.0'
+    guavaVersion                    = "18.0"
+    commonLangVersion               = '3.4'
+    commonIoVersion                 = "2.4"
+    commonCodecVersion              = "1.8"
+    commonFileUploadVersion         = "1.3"
+    commonBeanutilsVersion          = "1.8.3"
+    jodaTimeVersion                 = '2.8'
+    poiVersion                      = '3.9'
+
+    // test
+    junitVersion                    = '4.12'
+    assertjVersion                  = '3.0.0'
+    jsonUnitFluentVersion           = '1.5.5'
+    mockitoVersion                  = '1.10.19'
+    powermockVersion                = '1.6.2'
+    jmemcachedVersion               = '1.0.0'
+    jettyServerVersion              = '7.6.15.v20140411'
+
+    // provided
+    servletApiVersion               = '2.5'
+    mysqlVersion                    = '5.1.14'
+}
+
+repositories {
+    //mavenCentral() 
+    maven {
+        url "http://central.maven.org/maven2"
+    }
+}
+
+dependencies {
+    //spring
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-beans:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework:spring-aop:$springVersion"
+    compile "org.springframework:spring-jdbc:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    compile "net.sf.ezmorph:ezmorph:1.0.6"
+    compile "org.springframework.data:spring-data-jpa:1.3.0.RELEASE"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.freemarker:freemarker:$freemarkerVersion"
+
+    //aop
+    compile "org.aspectj:aspectjrt:1.7.0"
+    compile "org.aspectj:aspectjweaver:1.6.9"
+    compile "commons-dbcp:commons-dbcp:1.4"
+    compile "cglib:cglib:2.2.2"
+
+    //hibernate
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+    compile "org.hibernate:hibernate-ehcache:$hibernateVersion"
+    compile "net.sf.ehcache:ehcache-core:2.6.6"
+    compile "org.hibernate:hibernate-validator:5.0.1.Final"
+    compile "org.hibernate:hibernate-search:4.2.0.Final"
+
+    //logging
+    compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.slf4j:jul-to-slf4j:$slf4jVersion"
+    compile "ch.qos.logback:logback-classic:$logbackVersion"
+    compile "ch.qos.logback:logback-core:$logbackVersion"
+    compile "ch.qos.logback:logback-access:$logbackVersion"
+
+    //memcached
+    compile "net.spy:spymemcached:$spymemcachedVersion"
+    compile "com.google.code.simple-spring-memcached:spring-cache:$simpleSpringMemcachedVersion"
+    compile "com.google.code.simple-spring-memcached:spymemcached-provider:$simpleSpringMemcachedVersion"
+
+    //utils
+    compile "org.apache.commons:commons-lang3:$commonLangVersion"
+    compile "commons-io:commons-io:$commonIoVersion"
+    compile "commons-codec:commons-codec:$commonCodecVersion"
+    compile "commons-fileupload:commons-fileupload:$commonFileUploadVersion"
+    compile "commons-beanutils:commons-beanutils:$commonBeanutilsVersion"
+
+    //date time utils
+    compile "joda-time:joda-time:$jodaTimeVersion"
+    compile "com.google.guava:guava:$guavaVersion"
+
+    //mail
+    compile "javax.mail:mail:1.4.7"
+    compile "javax.activation:activation:1.1.1"
+
+    //jackson
+    compile "org.codehaus.jackson:jackson-core-asl:1.9.13"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.13"
+    compile "net.sf.json-lib:json-lib:2.4:jdk15"
+
+    //poi office
+    compile "org.apache.poi:poi:$poiVersion"
+    compile "org.apache.poi:poi-ooxml:$poiVersion"
+    compile "org.apache.poi:poi-ooxml-schemas:$poiVersion"
+
+    compile "javax.servlet:servlet-api:$servletApiVersion"
+    compile "mysql:mysql-connector-java:$mysqlVersion"
+
+    compile "org.codehaus.woodstox:wstx-asl:3.2.7"
+
+    //test
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.assertj:assertj-core:$assertjVersion"
+    testCompile "org.mockito:mockito-core:$mockitoVersion"
+    testCompile	"org.powermock:powermock-api-mockito:$powermockVersion"
+    testCompile "org.powermock:powermock-module-junit4:$powermockVersion"
+    testCompile "net.javacrumbs.json-unit:json-unit-fluent:$jsonUnitFluentVersion"
+    testCompile "org.springframework:spring-test:$springVersion"
+    testCompile "com.thimbleware.jmemcached:jmemcached-core:$jmemcachedVersion"
+
+}  
