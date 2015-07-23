@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:src/main/webapp/WEB-INF/spring-mvc.xml",
-        "file:src/main/resources/spring.xml" })
+        "file:src/main/resources/spring.xml"})
 @ActiveProfiles("test")
 @Transactional
 public class PlanDaoTest extends TestCase {

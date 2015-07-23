@@ -1,5 +1,5 @@
-set JAVA_HOME=software\jdk1.8_31
-set CATALINA_HOME=software\apache-tomcat-7.0.63
+set JAVA_HOME=software\win32\jdk
+set CATALINA_HOME=software\win32\apache-tomcat-7.0.63
 set CATALINA_BASE=%CATALINA_HOME%
 set LOG_HOME=%CATALINA_HOME%\logs
 set JAVA_OPTS=-Dlog.path=%LOG_HOME% -server -Xms128m -Xmx512m
