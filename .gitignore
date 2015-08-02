@@ -53,7 +53,7 @@ crashlytics-build.properties
 *.pydevproject
 .metadata
 .gradle
-bin/
+##bin/
 tmp/
 *.tmp
 *.bak
