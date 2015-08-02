@@ -162,5 +162,4 @@ dependencies {
     testCompile "net.javacrumbs.json-unit:json-unit-fluent:$jsonUnitFluentVersion"
     testCompile "org.springframework:spring-test:$springVersion"
     testCompile "com.thimbleware.jmemcached:jmemcached-core:$jmemcachedVersion"
-
 }  

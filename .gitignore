@@ -131,3 +131,8 @@ gradle-app.setting
 hs_err_pid*
 keystore.jks
 npm-debug.log
+
+# tomcat folders
+webapps/
+logs/
+temp/
