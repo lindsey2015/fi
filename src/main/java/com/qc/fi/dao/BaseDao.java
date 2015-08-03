@@ -55,4 +55,6 @@ public class BaseDao<T> {
     public void delete(T entity) {
         this.getSession().delete(entity);
     }
+
+
 }

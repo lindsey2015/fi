@@ -9,7 +9,7 @@
 <#global layout_body>
     <#-- body goes here-->
 
-    list
+    add
 </#global>
 
 <#include "/layout/layout.ftl" />

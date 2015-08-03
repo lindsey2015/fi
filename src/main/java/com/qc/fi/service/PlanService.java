@@ -21,4 +21,16 @@ public class PlanService {
     public List<Plan> findAll() {
         return planDao.findAll();
     }
+    public void delete(long id) {
+        planDao.delete(id);
+    }
+
+    public void save(Plan plan) {
+        planDao.save(plan);
+    }
+    public void update(Plan plan) {
+        planDao.update(plan);
+    }
+
+
 }
