@@ -1,1 +1,1 @@
-# ship insurance
+# freight insurance

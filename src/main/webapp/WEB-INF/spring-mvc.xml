@@ -33,10 +33,8 @@
                 <property name="prefixJson" value="false"/>
                 <property name="supportedMediaTypes">
                     <list>
-                        <!--
                         <value>application/json</value>
                         <value>text/json</value>
-                        -->
                         <value>text/html</value>
                         <!--ie 上传文件返回json变成下载处理 -->
                     </list>

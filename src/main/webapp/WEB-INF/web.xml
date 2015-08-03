@@ -33,7 +33,7 @@
     </filter>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.action</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -42,7 +42,7 @@
      </filter>
     <filter-mapping>
         <filter-name>SpringOpenSessionInViewFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.action</url-pattern>
     </filter-mapping>
 
     <servlet>
@@ -61,7 +61,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.action</url-pattern>
     </servlet-mapping>
 
     <session-config>
