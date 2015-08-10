@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>管理员界面</title>
+        <link rel="stylesheet" href="static/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="static/css/bootstrap-theme.min.css" >
+        <link rel="stylesheet" href="static/css/admin.css" >
+        <script type="text/javascript" src="static/js/jquery.min.js" ></script>
+        <script type="text/javascript" src="static/js/jquery.tabify.js"></script>
+        <script type="text/javascript" src="static/js/click.js"></script>
+        <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="static/js/mousedrag.js"></script>
+        <script type="text/javascript" src="static/js/My97DatePicker/WdatePicker.js"></script>
+        <script type="text/javascript" src="static/js/admin.js"></script>
+    </head>
+    <body>
+        <div class="heading">
+            <div class="welcome">
+                <div class="div2">
+                    Welcome&nbsp;&nbsp;<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                </div>
+                <div class="div3">
+                    <ul>
+                        <li ><a href="#" id="save"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;&nbsp;修改密码</a></li>
+                        <li ><a href="#" id="quit"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab" id="tab">
+            <ul id="menu" class="nav nav-pills ">
+                <li role="presentation" class="active"><a href="#tab1">保单查询</a></li>
+                <li role="presentation"><a href="#tab2">用户管理</a></li>
+                <li role="presentation"><a href="#tab3">设&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置</a></li>
+            </ul>
+        </div>
+        <div class="newpassword box" id="new_password">
+            <div class="row1">
+                <h4><b>修改密码</b></h4>
+                <a href="javascript:void(0)" title="关闭窗口" class="close_btn">×</a>
+            </div>
+            <table>
+                <tr>
+                    <td>新&nbsp;密&nbsp;码：</td>
+                    <td> <input type="password" class="form-control" id="exampleInputPassword1" placeholder="输入修改后的密码"></td>
+                </tr>
+            </table>
+            <button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="margin-top:30px;">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+        </div>
+        <div class="adduser box" id="adduser">
+            <div class="row1">
+                <h4><b>添加用户</b></h4>
+                <a href="javascript:void(0)" title="关闭窗口" class="close_btn">×</a>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>用户账户：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    <tr>
+                        <td>渠道名称：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>渠道联系人：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    <tr>
+                        <td>渠道联系方式：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>联系人姓名：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    <tr>
+                        <td>手机号码：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>固定电话：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    <tr>
+                        <td>电子邮箱：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="margin-top:30px;">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+        </div>
+        <div class="userInfo box" id="userInfo">
+            <div class="row1">
+                <h4><b>管理用户个人信息</b></h4>
+                <a href="javascript:void(0)" title="关闭窗口" class="close_btn">×</a>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>用户账户：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>渠道名称：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>渠道联系人：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    <tr>
+                        <td>渠道联系方式：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>联系人姓名：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    <tr>
+                        <td>手机号码：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td>固定电话：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                    </tr>
+                    <tr>
+                        <td>电子邮箱：</td>
+                        <td><input type="text" class="form-control" placeholder=""></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="margin-top:30px;">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+        </div>
+        <div class="detail box" id="detail">
+            <div class="row1">
+                <h4><b>保单详情</b></h4>
+                <a href="javascript:void(0)" title="关闭窗口" class="close_btn">×</a>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>投保人姓名：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                        <td>产品名称：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>起保日期：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                        <td>起保总额：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>保障天数：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                        <td>保障人数：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>年龄段：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                        <td>投保单号：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>投保人姓名：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                        <td>紧急联系人姓名：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>紧急联系人电话：</td>
+                        <td><input class="form-control" type="text" placeholder="" disabled></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>excel团单下载:</td>
+                        <td><a href="#">点击下载</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>被保险人：</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table  table-striped table-bordered table-bordered">
+                                <tr>
+                                    <td>姓名</td>
+                                    <td>证件类型</td>
+                                    <td>证件号码</td>
+                                    <td>职业类型</td>
+                                    <td>生日</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="box ralated_product" style="width:40%;">
+            <div class="row1">
+                <h4><b>用户关联产品</b></h4>
+                <a href="javascript:void(0)" title="关闭窗口" class="close_btn">×</a>
+            </div>
+            <table>
+                <tr>
+                    <td><button class="btn btn-primary btn-xs" type="submit">添加</button></td>
+                    <td><button class="btn btn-primary btn-xs" type="submit">移除</button></td>
+                </tr>
+            </table>
+            <table class="table table-bordered table-bordered">
+                <tr>
+                    <td><input type="checkbox" name="selectall" onclick="selectALL('select')"></td>
+                    <td>产品名称</td><td>操作</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="select"></td>
+                    <td>太平洋户外之旅</td><td><a href="#">移除</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="tab1" class="hcon">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="按投保单号搜索">
+                        </td>
+                        <td style="padding:0;">
+                            <button class="btn btn-primary" type="submit">搜索</button>
+                        </td>
+                        <td style="padding:0;">
+                            <input class="Wdate form-control" type="text" style="height:34px;" placeholder="按最小投保日期搜索" onClick="WdatePicker()"/>
+                        </td>
+                        <td >
+                            <input class="Wdate form-control" type="text" style="height:34px;"  placeholder="按投最大投保日期搜索" onClick="WdatePicker()"/>
+                        </td>
+                        <td style="padding:10;">
+                            <button class="btn btn-primary" type="submit">搜索</button>
+                        </td>
+                        <td style="padding:0;">
+                            <button class="btn btn-primary" type="submit">导出</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td><input type="checkbox" name="selectall" onclick="selectALL('select')"></td>
+                    <td>投保单号</td>
+                    <td>投保人姓名</td>
+                    <td>产品名称</td>
+                    <td>起保日期</td>
+                    <td>保险费金额</td>
+                    <td>保障天数</td>
+                    <td>保障人数</td>
+                    <td>年龄段</td>
+                    <td>保单详情</td>
+                    <td>保单操作</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="select"></td>
+                    <td>AXIMC01AHW15P000053Q</td>
+                    <td>test</td>
+                    <td>太平洋户外之旅-图途专享</td>
+                    <td>2015-07-14</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1-80</td>
+                    <td style="align:top;"><button class="btn btn-default click" type="submit" style="height:25px;font-size:8px;">保单详情</button></td>
+                    <td style="align:top;"><button class="btn btn-default" type="submit" style="height:25px;font-size:8px;">保单操作</button></td>
+                </tr>
+            </table>
+            <nav style="float:right;">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="tab2" class="hcon">
+            <table>
+                <tr>
+                    <td><button class="add btn btn-primary" type="submit">新增用户</button></td>
+                    <td style="padding-left:300px;">
+                        <input type="text" class="form-control" placeholder="按投保单号查询">
+                    </td>
+                    <td style="padding:0;">
+                        <button class="btn btn-primary" type="submit">查询</button>
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <td><input type="checkbox" name="selectall" onclick="selectALL('select')"></td>
+                    <td>用户名</td>
+                    <td>是否有用</td>
+                    <td>管理个人信息</td>
+                    <td>关联产品</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="select"></td>
+                    <td>test</td>
+                    <td>是</td>                    
+                    <td><a href="#" class="manage_userInfo">管理个人信息</a></td>
+                    <td><a href="#" class="relatpro">关联产品</a></td>
+                    <td><a href="#" >删除用户</a></td>
+                </tr>
+            </table>
+            <nav style="float:right;">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="tab3" class="hcon">
+            <table>
+                <tr>
+                    <td>费&nbsp;&nbsp;率：</td>
+                    <td><input type="text" class="form-control" placeholder=""></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="">保&nbsp;&nbsp;存</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

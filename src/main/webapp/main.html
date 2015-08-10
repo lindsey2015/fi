@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>用户界面</title>
+		<link rel="stylesheet" href="static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="static/css/main.css">
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="static/js/My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="static/js/jquery.tabify.js"></script>
+		<script type="text/javascript" src="static/js/main.js"></script>
+	</head>
+	<body>
+		<div class="heading">
+			<div class="welcome">
+				<div class="div2">
+					Welcome&nbsp;&nbsp;<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				</div>
+				<div class="div3">
+					<ul>
+						<li ><a href="#" class="save"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;&nbsp;修改密码</a></li>
+						<li ><a href="#" id="quit"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="newpassword" id="new_password">
+			<div class="row1">
+			<p>修改密码</p>
+			<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+		</div>
+		<table>
+			<tr>
+				<td>新密码：</td>
+				<td> <input type="password" class="form-control" id="exampleInputPassword1" placeholder="输入修改后的密码"></td>
+			</tr>
+		</table>
+		<button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="margin-top:30px;">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+	</div>
+	<div class="tab" id="tab">
+		<ul id="menu" class="nav nav-pills ">
+			<li role="presentation" class="active"><a href="#tab1">用户信息</a></li>
+			<li role="presentation"><a href="#tab2">国内运输投保</a></li>
+			<li role="presentation"><a href="#tab3">国际运输投保</a></li>
+			<li role="presentation"><a href="#tab4">保单查询</a></li>
+		</ul>
+	</div>
+	<div id="tab1" class="hcon">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<span>用户账号：</span>
+					</td>
+					<td>
+						<input type="text" class="form-control" placeholder="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>公司名称：</span>
+					</td>
+					<td>
+						<input type="text" class="form-control" placeholder="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>联系人：</span>
+					</td>
+					<td>
+						<input type="text" class="form-control" placeholder="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>手机号码：</span>
+					</td>
+					<td>
+						<input type="text" class="form-control" placeholder="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>固定电话：</span>
+					</td>
+					<td>
+						<input type="text" class="form-control" placeholder="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>电子邮箱：</span>
+					</td>
+					<td>
+						<input type="text" class="form-control" placeholder="">
+					</td>
+				</tr>
+				<tr><td></td><td><button class="save btn btn-primary btn-lg btn-block btn-sm" type="submit" style="">修&nbsp;&nbsp;改&nbsp;&nbsp;密&nbsp;&nbsp;码</button></td></tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="tab2" class="hcon">
+		<table>
+			<tr>
+				<td>
+					<span>被保险人：</span>
+				</td>
+				<td>
+					<input class="form-control" type="text" placeholder="XXX公司" disabled>
+				</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>货物名称：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>货物种类：</td>
+				<td>
+					<select class="form-control">
+						<option>=====请选择====</option>
+						<option>普通货物</option>
+						<option>易碎品</option>
+						<option>电子产品</option>
+						<option>其他</option>
+					</select>
+				</td>
+				<td>包装及数量：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>包装类型：</td>
+				<td>
+					<select class="form-control">
+						<option>=====请选择====</option>
+						<option>裸装或散装</option>
+						<option>非裸装，非散装</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>发票号：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>贸易合同号：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>运单号：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>投保金额：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>费率：</td>
+				<td><input class="form-control" type="text" placeholder="后台算的" disabled></td>
+				<td>保费：</td>
+				<td><input class="form-control" type="text" placeholder="后台算的" disabled></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>运输方式：</td>
+				<td>
+					<select class="form-control" id="vehicle" onChange="ShowHidden();">
+						<option>=====请选择====</option>
+						<option>全程陆运</option>
+						<option>水陆联运/水运</option>
+						<option>空陆联运/空运</option>
+						<option>快递</option>
+					</select>
+				</td>
+				<td></td>
+				<td><input type="text" class="form-control" placeholder="车牌号/船名/航班号/快递号"></td>
+				<td>保险条款：</td>
+				<td id="ShowHidden" style="display:none;">
+					<input class="form-control" type="text" placeholder="陆运一切险" disabled>
+				</td>
+				<td id="ShowHidden1" style="display:none;">
+					<input class="form-control" type="text" placeholder="国内水路陆路货运综合险" disabled>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>起运地：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>目的地：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>起运日期：</td>
+				<td> <input style="height:34px;" class="Wdate" type="text"  onClick="WdatePicker()"/></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>备注：</td>
+				<td><textarea class="form-control" rows="3" placeholder="备注"></textarea></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="">暂&nbsp;&nbsp;&nbsp;&nbsp;存</button></td>
+				<td></td>
+				<td><button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="">提&nbsp;交&nbsp;审&nbsp;核</button></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<div id="tab3" class="hcon">
+		<table>
+			<tr>
+				<td>
+					<span>被保险人：</span>
+				</td>
+				<td>
+					<input class="form-control" type="text" placeholder="XXX公司" disabled>
+				</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>货物名称：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>货物种类：</td>
+				<td>
+					<select class="form-control">
+						<option>====请选择====</option>
+						<option>普通货物</option>
+						<option>易碎品</option>
+						<option>电子产品</option>
+						<option>其他</option>
+					</select>
+				</td>
+				<td>集装箱运输：</td>
+				<td>
+					<label class="radio-inline">
+						<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 是
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 否
+					</label>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>包装及数量：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>包装类型：</td>
+				<td>
+					<select class="form-control">
+						<option>====请选择====</option>
+						<option>裸装</option>
+						<option>非裸装</option>
+					</select>
+				</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>提单号：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>发票号：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>贸易合同号：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>集装箱号码：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+			</tr>
+			<tr>
+				<td>币种：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>贸易发票金额：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>
+					<span>加成率：</span>
+				</td>
+				<td>
+					<input class="form-control" type="text" placeholder="110%" disabled>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>总保险金额：</td>
+				<td><input class="form-control" type="text" placeholder="后台算的" disabled></td>
+				<td>费率：</td>
+				<td><input class="form-control" type="text" placeholder="后台算的" disabled></td>
+				<td>保费：</td>
+				<td><input class="form-control" type="text" placeholder="后台算的" disabled></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>运输方式：</td>
+				<td>
+					<select class="form-control">
+						<option>====请选择====</option>
+						<option>全程陆运</option>
+						<option>水陆联运/水运</option>
+						<option>空陆联运/空运</option>
+						<option>快递</option>
+					</select>
+				</td>
+				<td></td>
+				<td><input type="text" class="form-control" placeholder="车牌号/船名/航班号/快递号"></td>
+				<td>保险条款</td>
+				<td>
+					<input class="form-control" type="text" placeholder="一切险" disabled>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>起运国家：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>起运城市：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>目的城市：</td>
+				<td><input type="text" class="form-control" placeholder=""></td>
+				<td>起运日期：</td>
+				<td><input style="height:34px;" class="Wdate" type="text"  onClick="WdatePicker()"/></td>
+			</tr>
+			<tr>
+				<td>备注：</td>
+				<td><textarea class="form-control" rows="3" placeholder="备注"></textarea></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="">暂&nbsp;&nbsp;&nbsp;&nbsp;存</button></td>
+				<td></td>
+				<td><button class="btn btn-primary btn-lg btn-block btn-sm" type="submit" style="">提&nbsp;交&nbsp;审&nbsp;核</button></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<div id="tab4" class="hcon">
+		<table class="table table-bordered table-hover">
+			<tr>
+				<td>保险公司</td>
+				<td>客户名单</td>
+				<td>保单号</td>
+				<td>起运地</td>
+				<td>目的地</td>
+				<td>投保金额</td>
+				<td>保险费</td>
+				<td>起运日期</td>
+				<td>状态</td>
+			</tr>
+		</table>
+		<nav style="float:right;">
+			<ul class="pagination">
+				<li>
+					<a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li><a href="#">1</a></li>
+				<li>
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</body>
+</html>
