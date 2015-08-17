@@ -17,6 +17,7 @@ import java.util.List;
         "file:src/main/webapp/WEB-INF/spring-mvc.xml",
         "file:src/main/resources/spring.xml" })
 @ActiveProfiles("test")
+@Transactional
 public class PlanServiceTest extends TestCase {
     @Autowired
     PlanService planService;

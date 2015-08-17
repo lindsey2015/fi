@@ -12,9 +12,9 @@
     <body>
         <div class="page-container">
             <h1 style="font-family:微软雅黑;">用&nbsp;户&nbsp;登&nbsp;陆</h1>
-            <form name="LoginForm" action="main.html" method="POST" onsubmit="">
-                <input id="username" type="text" name="username" class="username" placeholder="用户名">
-                <input id="password" type="password" name="password" class="password" placeholder="密码">
+            <form name="LoginForm" action="login.action" method="POST">
+                <input id="username" type="text" name="userName" class="username" placeholder="用户名" />
+                <input id="password" type="password" name="password" class="password" placeholder="密码" autocomplete="false"/>
                 <button type="submit" name="submit" style="background:#3478be;border:1px solid #3478be;">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;陆</button>
                 <div class="error"><span>+</span></div>
             </form>

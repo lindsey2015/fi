@@ -34,8 +34,11 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.show_sql">true</prop>                 
             </props>
+        </property>
+        <property name="namingStrategy"> 
+             <bean class="org.hibernate.cfg.ImprovedNamingStrategy" /> 
         </property>
     </bean>
 
@@ -55,17 +58,9 @@
 	</bean>
 
     <beans profile="production">   		
-		<jee:jndi-lookup id="dataSource" jndi-name="${datasource.jndi}" />
-
-		<!-- 数据源配置, 不使用连接池
-		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		    <property name="driverClassName" value="${jdbc.driver}" />
-			<property name="url" value="${jdbc.url}" />
-			<property name="username" value="${jdbc.username}"/>
-			<property name="password" value="${jdbc.password}"/>
-		</bean>
-		-->
+		<jee:jndi-lookup id="dataSource" jndi-name="${datasource.jndi}" />		
 	</beans>
+    
 	<!-- local test 环境 -->
 	<beans profile="test">
 		<context:property-placeholder ignore-resource-not-found="true"

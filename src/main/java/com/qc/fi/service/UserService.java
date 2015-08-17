@@ -2,36 +2,41 @@ package com.qc.fi.service;
 
 import com.qc.fi.dao.UserDao;
 import com.qc.fi.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Transactional
 @Service
 public class UserService {
-    @Resource
-    UserDao userDao=new UserDao();
+    @Autowired
+    UserDao userDao;
 
-    public List<User> findAll() {
-        return userDao.findAll();
+    public User add(User user) {
+        long id = userDao.save(user);
+        user.setId(id);
+        return user;
     }
 
     public void delete(long id) {
         userDao.delete(id);
     }
 
-    public void add(User user) {
-        userDao.save(user);
-
+    public User update(User user) {
+        return userDao.update(user);
     }
 
-    public User getById(int id) {
+    public List<User> list() {
+        return userDao.findAllNormalUsers();
+    }
+
+    public User getById(long id) {
         return userDao.findOne(id);
     }
 
-    public void update(User user) {
-        userDao.update(user);
+    public User getByUserNamePwd(String userName, String password) {
+        return userDao.findOne(userName, password);
     }
 }

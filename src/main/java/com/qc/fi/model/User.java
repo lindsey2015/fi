@@ -1,16 +1,22 @@
 package com.qc.fi.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
 public class User {
+    public static final int ADMIN = 1;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String userName;
+    @JsonIgnore
     private String password;
-    private String userType;
+    private int userType;
     private String companyName;
     private String channelName;
     private String channelContact;
@@ -19,6 +25,10 @@ public class User {
     private String cellPhone;
     private String phone;
     private String email;
+
+    public boolean isAdmin() {
+        return userType == ADMIN;
+    }
 
 
     public long getId() {
@@ -45,11 +55,11 @@ public class User {
         this.password = password;
     }
 
-    public String getUserType() {
+    public int getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(int userType) {
         this.userType = userType;
     }
 

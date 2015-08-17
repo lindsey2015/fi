@@ -28,35 +28,35 @@
             <!-- 将StringHttpMessageCOnverter的默认编码设为UTF-8 -->
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <constructor-arg value="UTF-8"/>
-            </bean>
-            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-                <property name="prefixJson" value="false"/>
-                <property name="supportedMediaTypes">
-                    <list>
-                        <value>application/json</value>
-                        <value>text/json</value>
-                        <value>text/html</value>
-                        <!--ie 上传文件返回json变成下载处理 -->
-                    </list>
-                </property>
-            </bean>
+            </bean>            
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
-    <mvc:annotation-driven/>
     <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
     <mvc:default-servlet-handler/>
 
-<!--
+    <!--
+        <mvc:interceptors>
+            <bean class="com.qc.fi.web.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptors>
+    -->
     <mvc:interceptors>
-        <bean class="com.qc.fi.web.interceptor.LoginInterceptor"></bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/policy/**" />
+            <mvc:mapping path="/user/**" />
+            <bean class="com.qc.fi.web.interceptor.SecurityInterceptor">
+                <property name="excludedUrls">
+                    <list>
+                        <value>/login.action</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:interceptor>
     </mvc:interceptors>
--->
 
     <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/views/"/>
-        <property name="defaultEncoding" value="utf-8"/>        
+        <property name="defaultEncoding" value="utf-8"/>
         <property name="freemarkerSettings">
             <props>
                 <prop key="template_update_delay">1</prop>
@@ -93,6 +93,15 @@
 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
         <property name="defaultLocale" value="${locale}" />
+    </bean>
+
+    <bean id="handlerExceptionResolver"
+    class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="com.qc.fi.web.interceptor.AuthorizationException">redirect:/sign-in.html</prop>
+            </props>
+        </property>
     </bean>
 
     <!-- 上传文件拦截，设置最大上传文件大小   10M=10*1024*1024(B)=10485760 bytes -->

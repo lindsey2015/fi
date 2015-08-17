@@ -103,7 +103,7 @@ body
  	 border-left: none; 
  	 background: #d6e3f1; 
  	 padding: 3% 3% 3% 3%; 
- 	 min-width: 87%; 
+ 	 width: 87%; 
  	 min-height: 1px;
  	 float: left;
  	 overflow:auto;

@@ -18,33 +18,12 @@ public class BaseDao<T> {
         this.clazz = (Class) pt.getActualTypeArguments()[0];
     }
 
-    private Session getSession() {
+    protected Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 
-    public T save(T entity) {
-        return (T) this.getSession().save(entity);
-    }
-
-    public T findOne(long id) {
-        return (T) this.getSession().get(clazz, id);
-    }
-
-    public boolean exists(long id) {
-        return this.getSession().get(clazz, id) != null;
-    }
-
-    public List<T> findAll() {
-        return this.getSession().createQuery("from " + clazz.getName()).list();
-    }
-
-    public T update(T entity) {
-        this.getSession().update(entity);
-        return entity;
-    }
-
-    public long count() {
-        return this.getSession().createQuery("from " + clazz.getName()).list().size();
+    public long save(T entity) {
+        return (long) this.getSession().save(entity);
     }
 
     public void delete(long id) {
@@ -56,5 +35,24 @@ public class BaseDao<T> {
         this.getSession().delete(entity);
     }
 
+    public T update(T entity) {
+        this.getSession().update(entity);
+        return entity;
+    }
 
+    public boolean exists(long id) {
+        return this.getSession().get(clazz, id) != null;
+    }
+
+    public T findOne(long id) {
+        return (T) this.getSession().get(clazz, id);
+    }
+
+    public List<T> findAll() {
+        return this.getSession().createQuery("from " + clazz.getName()).list();
+    }
+
+    public long count() {
+        return this.getSession().createQuery("from " + clazz.getName()).list().size();
+    }
 }

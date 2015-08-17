@@ -139,9 +139,10 @@ dependencies {
     compile "javax.activation:activation:1.1.1"
 
     //jackson
-    compile "org.codehaus.jackson:jackson-core-asl:1.9.13"
-    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.13"
-    compile "net.sf.json-lib:json-lib:2.4:jdk15"
+    //compile "org.codehaus.jackson:jackson-core-asl:1.9.13"
+    //compile "org.codehaus.jackson:jackson-mapper-asl:1.9.13"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.5.3"
+    //compile "net.sf.json-lib:json-lib:2.4:jdk15"
 
     //poi office
     compile "org.apache.poi:poi:$poiVersion"
